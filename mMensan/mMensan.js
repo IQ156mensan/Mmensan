@@ -280,7 +280,7 @@ function mPutImageData(ctx, imageData, dx, dy, dirtyX, dirtyY, dirtyWidth, dirty
     }
 }
 
-var mIsin = function(array, item, option){
+var mIsin = function(array, item, option) {
     var tmp = false;
     for (var i = 0; i < array.length; i++)
         if (array[i] == item)
@@ -292,10 +292,10 @@ var mDelsame = function(array) {
     var deltmp = []
     for (var i = 0; i < array.length; i++) {
         for (var j = i; j < array.length; j++) {
-            if (array[i] == array[j]){
-				if(!mIsin(deltmp,i))
-                deltmp.push(i)
-			}
+            if (array[i] == array[j]) {
+                if (!mIsin(deltmp, i))
+                    deltmp.push(i)
+            }
         }
     }
     deltmp.reverse()
