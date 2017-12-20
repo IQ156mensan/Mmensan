@@ -60,88 +60,6 @@ var mnullTest = function(obj, name) {
     return tag
 }
 module.exports.nullTest = mnullTest
-var button = function(component, point, size, ect) {
-    if (typeof ect == 'undefined')
-        this.ect = {}
-    else
-        this.ect = ect;
-    this.point = point;
-
-    this.size = size
-    var ctx = component.getContext('2d')
-    this.img = new Image();
-    if (!mNulltest(this.size, "width") || mNulltest(this.point, "width", true) == "")
-        this.size.width = 0
-    if (!mNulltest(this.size, "height") || mNulltest(this.point, "height", true) == "")
-        this.size.height = 0
-    if (!mNulltest(this.point, "x") || mNulltest(this.point, "x", true) == "")
-        this.point.x = component.width / 2 + this.size.width / 2
-    if (!mNulltest(this.point, "y") || mNulltest(this.point, "y", true) == "")
-        this.point.y = component.width / 2 + this.size.height / 2
-
-
-    if (!mNulltest(this.ect, "img") || mNulltest(this.ect, "img", true) == "")
-        this.ect.img = ""
-    else
-        this.img.src = this.ect.img
-    if (!mNulltest(this.ect, "color") || mNulltest(this.ect, "color", true) == "")
-        this.ect.color = "rgba(0,0,0,0)"
-    if (!mNulltest(this.ect, "textColor") || mNulltest(this.ect, "textColor", true) == "")
-        this.ect.textColor = "black"
-    if (!mNulltest(this.ect, "text") || mNulltest(this.ect, "text", true) == "")
-        this.ect.text = ""
-    if (!mNulltest(this.ect, "font") || mNulltest(this.ect, "font", true) == "")
-        this.ect.font = "20px _sans"
-
-    if (!mNulltest(this.ect, "mDown") || mNulltest(this.ect, "mDown", true) == "")
-        this.ect.mDown = function() {}
-    this.mDown = function(pp) {
-        if (mBox(pp.x, pp.y, 0, 0, this.point.x, this.point.y, this.size.width, this.size.height)) {
-            this.ect.mDown(pp)
-        }
-    }
-    if (!mNulltest(this.ect, "mUp") || mNulltest(this.ect, "mUp", true) == "")
-        this.ect.mUp = function() {}
-    this.mUp = function(pp) {
-        if (mBox(pp.x, pp.y, 0, 0, this.point.x, this.point.y, this.size.width, this.size.height)) {
-            this.ect.mUp(pp)
-        }
-    }
-    if (!mNulltest(this.ect, "mMove") || mNulltest(this.ect, "mMove", true) == "")
-        this.ect.mMove = function() {}
-    this.mMove = function(pp) {
-        if (mBox(pp.x, pp.y, 0, 0, this.point.x, this.point.y, this.size.width, this.size.height)) {
-            this.ect.mMove(pp)
-        }
-    }
-    if (!mNulltest(this.ect, "mLeave") || mNulltest(this.ect, "mLeave", true) == "")
-        this.ect.mLeave = function() {}
-    this.mLeave = function(pp) {
-        if (!mBox(pp.x, pp.y, 0, 0, this.point.x, this.point.y, this.size.width, this.size.height)) {
-            this.ect.mLeave(pp)
-        }
-    }
-    this.draw = function() {
-        if (this.ect.img == "") {
-            ctx.fillStyle = ect.color;
-            ctx.fillRect(point.x, point.y, size.width, size.height);
-        }
-        else {
-            ctx.drawImage(this.img, point.x, point.y, size.width, size.height)
-        }
-        ctx.font = ect.font;
-        ctx.fillStyle = ect.textColor;
-        var tm = {
-            x: ctx.textBaseline,
-            y: ctx.textAlign
-        }
-        ctx.textBaseline = 'middle';
-        ctx.textAlign = 'center';
-        ctx.fillText(ect.text, point.x + size.width / 2, point.y + size.height / 2);
-        ctx.textBaseline = tm.x
-        ctx.textAlign = tm.y;
-    }
-}
 
 var mTracking = function(cv, value, noise, callback) {
     this.canvas = cv;
@@ -361,4 +279,24 @@ function mPutImageData(ctx, imageData, dx, dy, dirtyX, dirtyY, dirtyWidth, dirty
             ctx.fillRect(x + dx, y + dy, 1, 1);
         }
     }
+}
+
+var mIsin(array,item,option){
+	var tmp = false;
+	for(var i = 0; i < array.length; i++)
+		if(array[i] == item)
+			tmp = i
+	return tmp
+}
+
+var mDelsame(array){
+	var deltmp = []
+	for(var i = 0; i < array.length; i++){
+		for(var j = i; j< array.length; j++){
+			if(array[i] == array[j])
+				deltmp.push(i)
+		}
+	}
+	deltmp.reverse()
+	console.log(deltmp)
 }
