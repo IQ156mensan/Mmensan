@@ -1,4 +1,3 @@
-
 /////
 var module = {};
 module.exports = {};
@@ -281,22 +280,22 @@ function mPutImageData(ctx, imageData, dx, dy, dirtyX, dirtyY, dirtyWidth, dirty
     }
 }
 
-var mIsin(array,item,option){
-	var tmp = false;
-	for(var i = 0; i < array.length; i++)
-		if(array[i] == item)
-			tmp = i
-	return tmp
+var mIsin = function(array, item, option){
+    var tmp = false;
+    for (var i = 0; i < array.length; i++)
+        if (array[i] == item)
+            tmp = i
+    return tmp
 }
 
-var mDelsame(array){
-	var deltmp = []
-	for(var i = 0; i < array.length; i++){
-		for(var j = i; j< array.length; j++){
-			if(array[i] == array[j])
-				deltmp.push(i)
-		}
-	}
-	deltmp.reverse()
-	console.log(deltmp)
+var mDelsame = function(array) {
+    var deltmp = []
+    for (var i = 0; i < array.length; i++) {
+        for (var j = i; j < array.length; j++) {
+            if (array[i] == array[j])
+                deltmp.push(i)
+        }
+    }
+    deltmp.reverse()
+    console.log(deltmp)
 }
