@@ -291,7 +291,7 @@ var mIsin = function(array, item, option) {
 var mDelsame = function(array) {
     var deltmp = []
     for (var i = 0; i < array.length; i++) {
-        for (var j = i; j < array.length; j++) {
+        for (var j = i+1; j < array.length; j++) {
             if (array[i] == array[j]) {
                 if (!mIsin(deltmp, i))
                     deltmp.push(i)
