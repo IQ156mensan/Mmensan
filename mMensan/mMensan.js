@@ -290,14 +290,16 @@ var mIsin = function(array, item, option) {
 
 var mDelsame = function(array) {
     var deltmp = []
+
     for (var i = 0; i < array.length; i++) {
-        for (var j = i+1; j < array.length; j++) {
-            if (array[i] == array[j]) {
-                if (!mIsin(deltmp, i))
-                    deltmp.push(i)
-            }
-        }
+        var tmp = true
+        for (var j = 0; j < deltmp.length; j++)
+            if (array[i] == deltmp[j])
+                tmp = false;
+        if (tmp)
+            deltmp.push(array[i])
     }
-    deltmp.reverse()
-    console.log(deltmp)
+
+
+    return deltmp
 }
